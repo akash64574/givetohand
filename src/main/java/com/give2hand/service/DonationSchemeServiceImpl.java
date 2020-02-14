@@ -2,8 +2,6 @@ package com.give2hand.service;
 
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * Scheme Service Impl class we are implementing the all details regarding scheme
  * 
@@ -15,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Service
-@Slf4j
 public class DonationSchemeServiceImpl implements DonationSchemeService{
 
 }
