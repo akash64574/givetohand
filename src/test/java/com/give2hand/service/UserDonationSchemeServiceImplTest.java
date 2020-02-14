@@ -3,9 +3,7 @@ package com.give2hand.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Optional;
 
 import javax.mail.MessagingException;
 
@@ -22,7 +20,6 @@ import com.give2hand.common.GiveToHandEnum.PaymentType;
 import com.give2hand.dto.MakePaymentRequestDto;
 import com.give2hand.entity.DonationScheme;
 import com.give2hand.entity.UserDonationScheme;
-import com.give2hand.exception.DonationNotFoundException;
 import com.give2hand.repository.UserDonationSchemeRepository;
 import com.itextpdf.text.DocumentException;
 
@@ -80,12 +77,6 @@ public class UserDonationSchemeServiceImplTest {
 
 	}
 
-	@Test(expected = DonationNotFoundException.class)
-	public void testGetTaxCertificateDonationNotFoundException() throws IOException, DonationNotFoundException {
-		Mockito.when(userDonationSchemeRepository.findById(Mockito.any())).thenReturn(Optional.ofNullable(null));
-		userDonationSchemeServiceImpl.getTaxCertificate(13);
-
-	}
 
 //	@Test
 //	public void testGenerateTaxCertificateSuccess() throws FileNotFoundException, DocumentException {
