@@ -1,6 +1,7 @@
 package com.give2hand.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -16,9 +17,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
 import com.give2hand.dto.DonationSchemesReponseDto;
+import com.give2hand.dto.DonorResponseDto;
+import com.give2hand.dto.DonorsDto;
 import com.give2hand.dto.SchemeChartDto;
 import com.give2hand.dto.SchemeStatisticResponseDto;
 import com.give2hand.entity.DonationScheme;
+import com.give2hand.exception.SchemeNotFoundException;
 import com.give2hand.service.DonationSchemeService;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
@@ -61,6 +65,15 @@ public class DonationSchemeControllerTest {
 		when(donationSchemeService.getStatisticsForScheme()).thenReturn(schemeCharts);
 		ResponseEntity<SchemeStatisticResponseDto> response = donationSchemeController.getStatisticsForScheme();
 		assertThat(response.getBody().getSchemes()).hasSize(1);
+	}
+	
+	@Test
+	public void testGetSchemeBySchemeId() throws SchemeNotFoundException {
+		List<DonorsDto> doctors = new ArrayList<>();
+		when(donationSchemeService.getSchemeBySchemeId(1)).thenReturn(doctors);
+		ResponseEntity<DonorResponseDto> response = donationSchemeController.getSchemeBySchemeId(1);
+		assertEquals(200, response.getBody().getStatusCode());
+		
 	}
 
 }

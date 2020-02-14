@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +17,11 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.give2hand.dto.DonationSchemesReponseDto;
+import com.give2hand.dto.DonorsDto;
 import com.give2hand.dto.SchemeChartDto;
 import com.give2hand.entity.DonationScheme;
 import com.give2hand.entity.UserDonationScheme;
+import com.give2hand.exception.SchemeNotFoundException;
 import com.give2hand.repository.DonationSchemeRepository;
 import com.give2hand.repository.UserDonationSchemeRepository;
 
@@ -66,6 +69,16 @@ public class DonationSchemeServiceImplTest {
 	public void testGetStatisticsForScheme() {
 		when(userDonationSchemeRepository.findAll()).thenReturn(schemeCharts);
 		List<SchemeChartDto> response = donationSchemeServiceImpl.getStatisticsForScheme();
+		assertThat(response).hasSize(1);
+	}
+	
+	@Test
+	public void testGetSchemeBySchemeId() throws SchemeNotFoundException {
+		List<UserDonationScheme> schemes = new ArrayList<>();
+		schemes.add(userDonationScheme);
+		when(donationSchemeRepository.findById(1)).thenReturn(Optional.of(donationScheme));
+		when(userDonationSchemeRepository.findAllByScheme(donationScheme)).thenReturn(schemes);
+		List<DonorsDto> response = donationSchemeServiceImpl.getSchemeBySchemeId(1);
 		assertThat(response).hasSize(1);
 	}
 }
