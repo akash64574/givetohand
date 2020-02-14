@@ -1,10 +1,8 @@
 package com.give2hand.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class ResponseDto {
 
 	private Integer statusCode;

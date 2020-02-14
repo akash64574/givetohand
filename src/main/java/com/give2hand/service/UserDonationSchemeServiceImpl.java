@@ -11,8 +11,12 @@ import com.give2hand.repository.SchemeRepository;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+<<<<<<< HEAD:src/main/java/com/give2hand/service/SchemeServiceImpl.java
  * Scheme Service Impl class we are implementing the all details regarding
  * scheme
+=======
+ * 
+>>>>>>> c05c9e2858770054d76b471bfb74bc68b15fc6cf:src/main/java/com/give2hand/service/UserDonationSchemeServiceImpl.java
  * 
  * 
  * @author Amala .S
@@ -23,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Service
 @Slf4j
+<<<<<<< HEAD:src/main/java/com/give2hand/service/SchemeServiceImpl.java
 public class SchemeServiceImpl implements SchemeService {
 	@Autowired
 	SchemeRepository schemeRepository;
@@ -35,5 +40,8 @@ public class SchemeServiceImpl implements SchemeService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+=======
+public class UserDonationSchemeServiceImpl implements UserDonationSchemeService{
+>>>>>>> c05c9e2858770054d76b471bfb74bc68b15fc6cf:src/main/java/com/give2hand/service/UserDonationSchemeServiceImpl.java
 
 }
