@@ -66,11 +66,11 @@
 			<version>2.9.2</version>
 		</dependency>
 
-		<!-- <!-- H2 Database -->
+		<!-- H2 Database -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-		</dependency> -->
+		</dependency> 
 		
 	</dependencies>
 
