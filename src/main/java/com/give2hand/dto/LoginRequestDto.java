@@ -12,6 +12,6 @@ import lombok.Setter;
 public class LoginRequestDto {
 
 	private Long phoneNumber;
-	@NotNull(message = AppConstant.PASSWORD_SHOULD_BE_NOT_NULL)
+	@NotNull(message = AppConstant.PWD_SHOULD_BE_NOT_NULL)
 	private String password;
 }
