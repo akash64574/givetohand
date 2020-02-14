@@ -10,5 +10,5 @@ public class SchemeChartDto {
 	private Integer schemeId;
 	private String schemeName;
 	private Integer count;
-	private Double percentage;
+	private Double y;
 }
