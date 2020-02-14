@@ -16,7 +16,7 @@ import com.give2hand.dto.LoginDto;
 import com.give2hand.exception.UserNotFoundException;
 import com.give2hand.service.UserService;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class LoginControllerTest {
 
 	@InjectMocks

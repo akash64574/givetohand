@@ -1,7 +1,5 @@
 package com.give2hand.dto;
 
-import com.give2hand.common.GiveToHandEnum.PaymentType;
-
 import lombok.Getter;
 import lombok.Setter;
 
