@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class DonorsResponseDto extends ResponseDto {
+public class DonorResponseDto extends ResponseDto {
 
 	private List<DonorsDto> donors;
 
