@@ -1,6 +1,5 @@
 package com.give2hand.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,7 +35,6 @@ public class UserDonationScheme {
 	private DonationScheme scheme;
 	private String taxCertificateUrl;
 	private String name;
-	@Column(unique = true)
 	private Long phoneNumber;
 	private String panNumber;
 	@Enumerated(EnumType.STRING)
