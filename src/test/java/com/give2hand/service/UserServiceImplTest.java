@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.give2hand.dto.LoginRequestDto;
-import com.give2hand.dto.LoginResponseDto;
+import com.give2hand.dto.LoginDto;
 import com.give2hand.entity.User;
 import com.give2hand.exception.UserNotFoundException;
 import com.give2hand.repository.UserRepository;
@@ -42,7 +42,7 @@ public class UserServiceImplTest {
 	public void testUserLogin() throws UserNotFoundException {
 		when(userRepository.findByPhoneNumberAndPassword(loginRequestDto.getPhoneNumber(),
 				loginRequestDto.getPassword())).thenReturn(Optional.of(user));
-		LoginResponseDto response = userServiceImpl.userLogin(loginRequestDto);
+		LoginDto response = userServiceImpl.userLogin(loginRequestDto);
 		assertEquals(1, response.getUserId());
 	}
 	

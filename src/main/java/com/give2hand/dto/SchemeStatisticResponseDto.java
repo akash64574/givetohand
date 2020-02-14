@@ -7,7 +7,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class SchemeStatisticResponseDto extends ResponseDto{
+public class SchemeStatisticResponseDto {
 
+	private Integer statusCode;
+	private String message;
 	private List<SchemeChartDto> schemes;
 }

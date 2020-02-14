@@ -5,8 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MakePaymentResponseDto extends ResponseDto{
-	
+public class MakePaymentResponseDto {
+
 	private Integer donationId;
+	private Integer statusCode;
+	private String message;
 
 }

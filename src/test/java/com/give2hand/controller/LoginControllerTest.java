@@ -12,7 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
 import com.give2hand.dto.LoginRequestDto;
-import com.give2hand.dto.LoginResponseDto;
+import com.give2hand.dto.LoginDto;
 import com.give2hand.exception.UserNotFoundException;
 import com.give2hand.service.UserService;
 
@@ -34,8 +34,8 @@ public class LoginControllerTest {
 
 	@Test
 	public void testUserLogin() throws UserNotFoundException {
-          when(userService.userLogin(loginRequestDto)).thenReturn(new LoginResponseDto());
-          ResponseEntity<LoginResponseDto> response = loginController.userLogin(loginRequestDto);
+          when(userService.userLogin(loginRequestDto)).thenReturn(new LoginDto());
+          ResponseEntity<LoginDto> response = loginController.userLogin(loginRequestDto);
           assertEquals(200, response.getBody().getStatusCode());
 	}
 

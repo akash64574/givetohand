@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.give2hand.constant.AppConstant;
 import com.give2hand.dto.LoginRequestDto;
-import com.give2hand.dto.LoginResponseDto;
+import com.give2hand.dto.LoginDto;
 import com.give2hand.entity.User;
 import com.give2hand.exception.UserNotFoundException;
 import com.give2hand.repository.UserRepository;
@@ -34,14 +34,14 @@ public class UserServiceImpl implements UserService {
 	UserRepository userRepository;
 
 	@Override
-	public LoginResponseDto userLogin(LoginRequestDto loginRequestDto) throws UserNotFoundException {
+	public LoginDto userLogin(LoginRequestDto loginRequestDto) throws UserNotFoundException {
 		log.info("check the user login based on the phone number and password...");
 		Optional<User> user = userRepository.findByPhoneNumberAndPassword(loginRequestDto.getPhoneNumber(),
 				loginRequestDto.getPassword());
 		if (!user.isPresent()) {
 			throw new UserNotFoundException(AppConstant.INVALID_LOGIN);
 		}
-		LoginResponseDto loginResponseDto = new LoginResponseDto();
+		LoginDto loginResponseDto = new LoginDto();
 		BeanUtils.copyProperties(user.get(), loginResponseDto);
 		return loginResponseDto;
 	}

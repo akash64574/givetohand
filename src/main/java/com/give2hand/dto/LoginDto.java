@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class LoginResponseDto extends ResponseDto {
+public class LoginDto extends ResponseDto {
 
 	private Integer userId;
 	private String name;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.give2hand.constant.AppConstant;
 import com.give2hand.dto.LoginRequestDto;
-import com.give2hand.dto.LoginResponseDto;
+import com.give2hand.dto.LoginDto;
 import com.give2hand.exception.UserNotFoundException;
 import com.give2hand.service.UserService;
 
@@ -37,10 +37,10 @@ public class LoginController {
 	UserService userService;
 
 	@PostMapping
-	public ResponseEntity<LoginResponseDto> userLogin(@Valid @RequestBody LoginRequestDto loginRequestDto)
+	public ResponseEntity<LoginDto> userLogin(@Valid @RequestBody LoginRequestDto loginRequestDto)
 			throws UserNotFoundException {
 		log.info("check the user login based on the phone number and password...");
-		LoginResponseDto loginResponseDto = userService.userLogin(loginRequestDto);
+		LoginDto loginResponseDto = userService.userLogin(loginRequestDto);
 		loginResponseDto.setStatusCode(HttpStatus.OK.value());
 		loginResponseDto.setMessage(AppConstant.LOGIN_SCCUESS_MESSAGE);
 		return new ResponseEntity<>(loginResponseDto, HttpStatus.OK);
