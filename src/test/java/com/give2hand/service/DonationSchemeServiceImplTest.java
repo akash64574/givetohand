@@ -18,7 +18,7 @@ import com.give2hand.entity.DonationScheme;
 import com.give2hand.entity.UserDonationScheme;
 import com.give2hand.repository.UserDonationSchemeRepository;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class DonationSchemeServiceImplTest {
 
 	@InjectMocks

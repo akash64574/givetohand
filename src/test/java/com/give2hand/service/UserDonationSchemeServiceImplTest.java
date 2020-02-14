@@ -26,7 +26,7 @@ import com.give2hand.exception.DonationNotFoundException;
 import com.give2hand.repository.UserDonationSchemeRepository;
 import com.itextpdf.text.DocumentException;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class UserDonationSchemeServiceImplTest {
 
 	@InjectMocks

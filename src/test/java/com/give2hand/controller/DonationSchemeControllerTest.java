@@ -18,7 +18,7 @@ import com.give2hand.dto.SchemeChartDto;
 import com.give2hand.dto.SchemeStatisticResponseDto;
 import com.give2hand.service.DonationSchemeService;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class DonationSchemeControllerTest {
 
 	@InjectMocks
