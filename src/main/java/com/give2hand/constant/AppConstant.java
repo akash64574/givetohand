@@ -25,6 +25,5 @@ public class AppConstant {
 	public static final Integer SUCCESS_STATUS_CODE = 200;
 	public static final String LOGIN_SCCUESS_MESSAGE = "User Login Successfully";
 
-	
-	
+	public static final String SCHEME_NOT_FOUND = "scheme not found";
 }

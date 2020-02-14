@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -40,5 +41,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(body, headers, HttpStatus.OK);
 	}
 
-	
+	@ExceptionHandler(SchemeNotFoundException.class)
+	public ResponseEntity<Object> handleMethodArgumentNotValid(SchemeNotFoundException exception) {
+
+		ErrorResponse eeErrorResponse = new ErrorResponse();
+
+		eeErrorResponse.setHttpStatusCode("DA404");
+		eeErrorResponse.setMessage(exception.getMessage());
+
+		return new ResponseEntity<>(eeErrorResponse, HttpStatus.NOT_FOUND);
+	}
+
 }
