@@ -78,9 +78,18 @@ public class DonationSchemeServiceImpl implements DonationSchemeService {
 		return schemeChartDtos;
 	}
 
+	/**
+	 * Calculate the percentage value for the schemes.
+	 * 
+	 * @param totalCount - total scheme counts
+	 * @param schemeCount - count of the scheme
+	 * @return calculated the percentage value of the activity.
+	 * @author Govindasamy.C
+	 * @since 14-02-2020
+	 */
 	private Double calculatePercentage(Integer totalCount, Integer schemeCount) {
 		log.info("calculatePercentage method - calculating the percentage for schemes");
-		return Double.valueOf(schemeCount * 100) / totalCount;
+		return ((Double.valueOf(schemeCount) * 100) / totalCount);
 	}
 
 }
