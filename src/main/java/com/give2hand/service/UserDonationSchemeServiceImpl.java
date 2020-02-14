@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Scheme Service Impl class we are implementing the all details regarding scheme
+ * 
  * 
  * 
  * @author Amala .S
@@ -16,6 +16,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Service
 @Slf4j
-public class SchemeServiceImpl implements SchemeService{
+public class UserDonationSchemeServiceImpl implements UserDonationSchemeService{
 
 }

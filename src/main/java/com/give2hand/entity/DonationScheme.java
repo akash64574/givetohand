@@ -1,17 +1,9 @@
 package com.give2hand.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.give2hand.common.GiveToHandEnum.PaymentStatus;
-import com.give2hand.common.GiveToHandEnum.PaymentType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,18 +22,11 @@ public class DonationScheme {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer donationId;
-	@ManyToOne
-	@JoinColumn(name = "scheme_id")
-	private Scheme scheme;
-	private String taxCertificateUrl;
-	private String name;
-	@Column(unique = true)
-	private Long phoneNumber;
-	private String panNumber;
-	@Enumerated(EnumType.STRING)
-	private PaymentType paymentType;
-	@Enumerated(EnumType.STRING)
-	private PaymentStatus paymentStaus;
+	private Integer schemeId;
+	private String schemeName;
+	private String description;
+	private Double taxBenefit;
+	private Double amount;
+	private String imageUrl;
 
 }
