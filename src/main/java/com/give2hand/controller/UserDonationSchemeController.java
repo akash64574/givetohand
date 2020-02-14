@@ -2,6 +2,9 @@ package com.give2hand.controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,11 +54,13 @@ public class UserDonationSchemeController {
 	 * @since 2020-02-14.
 	 * @param donar details, like name, donarId, panNumber and tax percentage.
 	 * @return donarId generated in database with status code and message.
+	 * @throws MessagingException 
+	 * @throws UnsupportedEncodingException 
 	 * 
 	 */
 	@PostMapping
 	public MakePaymentResponseDto makePayment(@RequestBody MakePaymentRequestDto makePaymentRequestDto)
-			throws FileNotFoundException, DocumentException {
+			throws FileNotFoundException, DocumentException, UnsupportedEncodingException, MessagingException {
 		log.info("UserDonationSchemeController makePayment ---> making payment");
 		MakePaymentResponseDto makePaymentResponseDto = userDonationSchemeService.makePayment(makePaymentRequestDto);
 		makePaymentResponseDto.setStatusCode(HttpStatus.OK.value());

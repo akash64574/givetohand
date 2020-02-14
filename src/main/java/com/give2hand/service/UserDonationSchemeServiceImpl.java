@@ -2,8 +2,10 @@ package com.give2hand.service;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.BeanUtils;
@@ -42,6 +44,9 @@ public class UserDonationSchemeServiceImpl implements UserDonationSchemeService 
 
 	@Autowired
 	TaxCertificateGenerationService taxCertificateGenerationService;
+	
+	@Autowired
+	MailService mailService;
 
 	/**
 	 * 
@@ -52,12 +57,14 @@ public class UserDonationSchemeServiceImpl implements UserDonationSchemeService 
 	 * @since 2020-02-14.
 	 * @param donar details, like name, donarId, panNumber and tax percentage.
 	 * @return donarId generated in database.
+	 * @throws MessagingException 
+	 * @throws UnsupportedEncodingException 
 	 * 
 	 */
 	@Override
 	@Transactional
 	public MakePaymentResponseDto makePayment(MakePaymentRequestDto makePaymentRequestDto)
-			throws FileNotFoundException, DocumentException {
+			throws FileNotFoundException, DocumentException, UnsupportedEncodingException, MessagingException {
 
 		log.info("UserDonationSchemeServiceImpl makePayment --> making payment");
 		DonationScheme donationScheme = new DonationScheme();
@@ -75,8 +82,7 @@ public class UserDonationSchemeServiceImpl implements UserDonationSchemeService 
 		makePaymentResponseDto.setDonationId(userDonationScheme.getDonationId());
 		return makePaymentResponseDto;
 	}
-	
-	
+
 	/**
 	 * 
 	 * @author Raghu.

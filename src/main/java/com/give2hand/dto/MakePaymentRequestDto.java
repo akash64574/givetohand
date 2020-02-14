@@ -17,5 +17,6 @@ public class MakePaymentRequestDto {
 	private String panNumber;
 	@Enumerated(EnumType.STRING)
 	private PaymentType paymentType;
+	private Double taxBenefit;
 
 }

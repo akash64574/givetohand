@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +31,7 @@ public class UserDonationSchemeControllerTest {
 	UserDonationSchemeService userDonationSchemeService;
 	
 	@Test
-	public void testMakePaymentSuccess() throws FileNotFoundException, DocumentException {
+	public void testMakePaymentSuccess() throws FileNotFoundException, DocumentException, UnsupportedEncodingException, MessagingException {
 		
 		Mockito.when(userDonationSchemeService.makePayment(Mockito.any())).thenReturn(new MakePaymentResponseDto());
 		Integer actual = userDonationSchemeController.makePayment(new MakePaymentRequestDto()).getStatusCode();

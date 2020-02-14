@@ -41,5 +41,6 @@ public class UserDonationScheme {
 	private PaymentType paymentType;
 	@Enumerated(EnumType.STRING)
 	private PaymentStatus paymentStaus;
+	private Double taxBenefit;
 
 }

@@ -35,7 +35,8 @@ public class TaxCertificateGenerationServiceImpl implements TaxCertificateGenera
 				"C:\\Users\\User1\\Desktop\\pdf\\tax" + userDonationScheme.getDonationId() + ".pdf");
 		PdfWriter writer = PdfWriter.getInstance(document, fout);
 		document.open();
-		document.add(new Paragraph("Hello " + userDonationScheme.getName()));
+		document.add(new Paragraph("Hello " + userDonationScheme.getName() + "\n your tax benifit for donationId "
+				+ userDonationScheme.getDonationId() + " is Rs "+userDonationScheme.getTaxBenefit()));
 		document.close();
 		writer.close();
 		return "C:\\Users\\User1\\Desktop\\pdf\\tax" + userDonationScheme.getDonationId() + ".pdf";
