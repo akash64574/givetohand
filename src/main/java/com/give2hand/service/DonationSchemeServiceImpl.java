@@ -71,7 +71,7 @@ public class DonationSchemeServiceImpl implements DonationSchemeService {
 			schemeChartDto.setCount(schemeCount);
 			// Calculate the percentage value.
 			Double schemePercentage = calculatePercentage(totalUserDonationCount, schemeCount);
-			schemeChartDto.setPercentage(schemePercentage);
+			schemeChartDto.setY(schemePercentage);
 			log.info("before add the scheme detail to schemes list...");
 			schemeChartDtos.add(schemeChartDto);
 		});
