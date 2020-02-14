@@ -16,9 +16,9 @@ import com.give2hand.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * 
  * User Service Impl class we are implementing the user login activies for
  * phonenumber and password.
- * 
  * 
  * @author Amala .S
  * @since 14-02-2020
