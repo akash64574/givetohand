@@ -37,6 +37,7 @@ public class UserDonationScheme {
 	private String name;
 	private Long phoneNumber;
 	private String panNumber;
+	private String emailAddress;
 	@Enumerated(EnumType.STRING)
 	private PaymentType paymentType;
 	@Enumerated(EnumType.STRING)

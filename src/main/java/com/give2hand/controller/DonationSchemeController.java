@@ -7,19 +7,33 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.give2hand.constant.AppConstant;
+import com.give2hand.dto.DonationSchemesReponseDto;
+import com.give2hand.dto.DonorResponseDto;
+import com.give2hand.dto.DonorsDto;
 import com.give2hand.dto.SchemeChartDto;
 import com.give2hand.dto.SchemeStatisticResponseDto;
-import com.give2hand.entity.DonationScheme;
+import com.give2hand.exception.SchemeNotFoundException;
 import com.give2hand.service.DonationSchemeService;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 
+ * Get the all currencies and get the exchange rate based on the currency code.
+ * 
+ * @author Amala.S
+ * @since 14-02-2020
+ * @version V1.1
+ * 
+ *
+ */
 @RestController
-@RequestMapping("/schemes")
+@RequestMapping("schemes")
 @CrossOrigin
 @Slf4j
 public class DonationSchemeController {
@@ -28,12 +42,22 @@ public class DonationSchemeController {
 	DonationSchemeService donationSchemeService;
 
 	@GetMapping
-	public ResponseEntity<List<DonationScheme>> getAllSchemes() {
+	public ResponseEntity<List<DonationSchemesReponseDto>> getAllSchemes() {
 
-		return new ResponseEntity<List<DonationScheme>>(donationSchemeService.getAllSchemes(), HttpStatus.OK);
+		return ResponseEntity.ok().body(donationSchemeService.getAllSchemes());
 
 	}
-
+	
+	@GetMapping("/{schemeId}")
+	public ResponseEntity<DonorResponseDto> getSchemeBySchemeId(@PathVariable Integer schemeId) throws SchemeNotFoundException {
+		DonorResponseDto donorResponseDto=new DonorResponseDto();
+		List<DonorsDto> donors = donationSchemeService.getSchemeBySchemeId(schemeId);
+		donorResponseDto.setDonors(donors);
+		donorResponseDto.setMessage(AppConstant.SUCCESS_MESSAGE);
+		donorResponseDto.setStatusCode(HttpStatus.OK.value());
+		return new ResponseEntity<>(donorResponseDto, HttpStatus.OK);
+	}
+	
 	/**
 	 * Get the scheme statistics for the schemes.
 	 * 

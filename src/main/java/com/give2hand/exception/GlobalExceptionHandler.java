@@ -52,5 +52,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.OK).body(errorDto);
 	}
 
-	
+	@ExceptionHandler(SchemeNotFoundException.class)
+	public ResponseEntity<Object> handleMethodArgumentNotValid(SchemeNotFoundException exception) {
+
+		ErrorResponse eeErrorResponse = new ErrorResponse();
+
+		eeErrorResponse.setHttpStatusCode("DA404");
+		eeErrorResponse.setMessage(exception.getMessage());
+
+		return new ResponseEntity<>(eeErrorResponse, HttpStatus.NOT_FOUND);
+	}
+
 }

@@ -37,6 +37,5 @@ public class AppConstant {
 	public static final String EMAIL_BODY_1 = "is tax benefit";
 	
 
-	
-	
+	public static final String SCHEME_NOT_FOUND = "scheme not found";
 }
