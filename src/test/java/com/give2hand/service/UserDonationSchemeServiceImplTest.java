@@ -88,12 +88,7 @@ public class UserDonationSchemeServiceImplTest {
 		
 	}
 	
-	@Test
-	public void testGetTaxCertificateSuccess() throws IOException, DonationNotFoundException {
-		Mockito.when(userDonationSchemeRepository.findById(Mockito.any())).thenReturn(Optional.of(userDonationScheme));
-		assertNotNull(userDonationSchemeServiceImpl.getTaxCertificate(13));
-		
-	}
+	
 	
 //	@Test
 //	public void testGenerateTaxCertificateSuccess() throws FileNotFoundException, DocumentException {
