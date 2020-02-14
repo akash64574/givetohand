@@ -26,7 +26,7 @@ public class Scheme {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer schemeId;
 	private String schemeName;
-	private Text description;
+	private String description;
 	private Double taxBenefit;
 	private Double amount;
 	private String imageUrl;

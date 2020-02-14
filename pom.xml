@@ -66,15 +66,19 @@
 			<version>2.9.2</version>
 		</dependency>
 
-		<!-- H2 Database -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-		</dependency> 
-		
+			<scope>runtime</scope>
+		</dependency>
+
 	</dependencies>
-
-
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://15.206.100.96:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
