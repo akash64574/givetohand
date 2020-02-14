@@ -3,8 +3,9 @@ package com.give2hand.service;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+
 /**
- * User Service Impl class we are implementing the 
+ * User Service Impl class we are implementing the
  * 
  * 
  * @author Amala .S
