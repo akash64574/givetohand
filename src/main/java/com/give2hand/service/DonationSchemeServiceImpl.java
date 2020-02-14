@@ -1,8 +1,13 @@
 package com.give2hand.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
+import com.give2hand.controller.DonationSchemeController;
+import com.give2hand.entity.DonationScheme;
+import com.give2hand.repository.DonationSchemeRepository;
 
 /**
  * Scheme Service Impl class we are implementing the all details regarding scheme
@@ -15,7 +20,13 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Service
-@Slf4j
 public class DonationSchemeServiceImpl implements DonationSchemeService{
+
+	@Autowired
+	DonationSchemeRepository donationSchemeRepository;
+	@Override
+	public List<DonationScheme> getAllSchemes() {
+		return donationSchemeRepository.findAll();
+	}
 
 }

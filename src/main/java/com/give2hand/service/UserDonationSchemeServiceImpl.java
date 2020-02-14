@@ -21,6 +21,7 @@ import com.give2hand.entity.DonationScheme;
 import com.give2hand.entity.UserDonationScheme;
 import com.give2hand.exception.DonationNotFoundException;
 import com.give2hand.repository.UserDonationSchemeRepository;
+import com.give2hand.util.FileUtil;
 import com.itextpdf.text.DocumentException;
 
 import lombok.extern.slf4j.Slf4j;
@@ -81,17 +82,10 @@ public class UserDonationSchemeServiceImpl implements UserDonationSchemeService 
 	@Override
 	public byte[] getTaxCertificate(Integer donationId) throws IOException, DonationNotFoundException {
 		Optional<UserDonationScheme> userDonationScheme = userDonationSchemeRepository.findById(donationId);
-		if(!userDonationScheme.isPresent()) {
-			 throw new DonationNotFoundException(AppConstant.DONATION_NOT_FOUND);
+		if (!userDonationScheme.isPresent()) {
+			throw new DonationNotFoundException(AppConstant.DONATION_NOT_FOUND);
 		}
-		File file = new File(userDonationScheme.get().getTaxCertificateUrl());
-	      FileInputStream fis = new FileInputStream(file);
-	      byte [] data = new byte[(int)file.length()];
-	      fis.read(data);
-	      ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	      data = bos.toByteArray();
-	      fis.close();
-		return data;
+		return new FileUtil().getTaxCertificate(userDonationScheme.get().getTaxCertificateUrl());
 	}
 
 }
