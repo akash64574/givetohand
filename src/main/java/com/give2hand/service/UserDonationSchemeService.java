@@ -12,6 +12,6 @@ public interface UserDonationSchemeService {
 	
 	MakePaymentResponseDto makePayment(MakePaymentRequestDto makePaymentRequestDto) throws FileNotFoundException, DocumentException;
 	
-	byte[] getTaxCertificate(Integer donationId) throws FileNotFoundException, IOException, DonationNotFoundException;
+	byte[] getTaxCertificate(Integer donationId) throws IOException, DonationNotFoundException;
 
 }

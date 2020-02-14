@@ -1,8 +1,5 @@
 package com.give2hand.service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
@@ -78,7 +75,19 @@ public class UserDonationSchemeServiceImpl implements UserDonationSchemeService 
 		makePaymentResponseDto.setDonationId(userDonationScheme.getDonationId());
 		return makePaymentResponseDto;
 	}
-
+	
+	
+	/**
+	 * 
+	 * @author Raghu.
+	 * 
+	 *         This method will get the tax certificate
+	 * 
+	 * @since 2020-02-14.
+	 * @param donar id.
+	 * @return array of byte of data which contains the tax certificate.
+	 * 
+	 */
 	@Override
 	public byte[] getTaxCertificate(Integer donationId) throws IOException, DonationNotFoundException {
 		Optional<UserDonationScheme> userDonationScheme = userDonationSchemeRepository.findById(donationId);
